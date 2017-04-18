@@ -1,0 +1,3797 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="http://orchestrate.io/docs">orchestrate (v0.8.2)</a>
+</h1>
+<h4>Orchestrate is a database service. It is a simple REST API that is optimized for queries. Orchestrate combines full-text search, graph, time-series, and key/value.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.orchestrate">module orchestrate</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.orchestrate">
+            function <span class="apidocSignatureSpan"></span>orchestrate
+            <span class="apidocSignatureSpan">(token, apiEndpoint)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.bucket_builder">
+            function <span class="apidocSignatureSpan">orchestrate.</span>bucket_builder
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.builder">
+            function <span class="apidocSignatureSpan">orchestrate.</span>builder
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.client">
+            function <span class="apidocSignatureSpan">orchestrate.</span>client
+            <span class="apidocSignatureSpan">(token, apiEndpoint)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.event">
+            function <span class="apidocSignatureSpan">orchestrate.</span>event
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.graph">
+            function <span class="apidocSignatureSpan">orchestrate.</span>graph
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.patch">
+            function <span class="apidocSignatureSpan">orchestrate.</span>patch
+            <span class="apidocSignatureSpan">(collection, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.search">
+            function <span class="apidocSignatureSpan">orchestrate.</span>search
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.toString">
+            function <span class="apidocSignatureSpan">orchestrate.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">orchestrate.</span>bucket_builder.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">orchestrate.</span>builder.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">orchestrate.</span>event.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">orchestrate.</span>graph.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">orchestrate.</span>patch.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">orchestrate.</span>search.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">orchestrate.</span>ApiEndPoint</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">orchestrate.</span>ApiProtocol</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">orchestrate.</span>ApiVersion</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.orchestrate.bucket_builder">module orchestrate.bucket_builder</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.bucket_builder.bucket_builder">
+            function <span class="apidocSignatureSpan">orchestrate.</span>bucket_builder
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.orchestrate.bucket_builder.prototype">module orchestrate.bucket_builder.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.bucket_builder.prototype.after">
+            function <span class="apidocSignatureSpan">orchestrate.bucket_builder.prototype.</span>after
+            <span class="apidocSignatureSpan">(a)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.bucket_builder.prototype.before">
+            function <span class="apidocSignatureSpan">orchestrate.bucket_builder.prototype.</span>before
+            <span class="apidocSignatureSpan">(a)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.bucket_builder.prototype.between">
+            function <span class="apidocSignatureSpan">orchestrate.bucket_builder.prototype.</span>between
+            <span class="apidocSignatureSpan">(a, b)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.bucket_builder.prototype.build">
+            function <span class="apidocSignatureSpan">orchestrate.bucket_builder.prototype.</span>build
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.orchestrate.builder">module orchestrate.builder</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.builder.builder">
+            function <span class="apidocSignatureSpan">orchestrate.</span>builder
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.orchestrate.builder.prototype">module orchestrate.builder.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.builder.prototype.getDelegate">
+            function <span class="apidocSignatureSpan">orchestrate.builder.prototype.</span>getDelegate
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.builder.prototype.setDelegate">
+            function <span class="apidocSignatureSpan">orchestrate.builder.prototype.</span>setDelegate
+            <span class="apidocSignatureSpan">(delegate)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.builder.prototype.setWrite">
+            function <span class="apidocSignatureSpan">orchestrate.builder.prototype.</span>setWrite
+            <span class="apidocSignatureSpan">(write)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.orchestrate.event">module orchestrate.event</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.event.event">
+            function <span class="apidocSignatureSpan">orchestrate.</span>event
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.event.super_">
+            function <span class="apidocSignatureSpan">orchestrate.event.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.orchestrate.event.prototype">module orchestrate.event.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.event.prototype._execute">
+            function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>_execute
+            <span class="apidocSignatureSpan">(method)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.event.prototype.create">
+            function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>create
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.event.prototype.data">
+            function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>data
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.event.prototype.end">
+            function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>end
+            <span class="apidocSignatureSpan">(time)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.event.prototype.from">
+            function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>from
+            <span class="apidocSignatureSpan">(collection, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.event.prototype.get">
+            function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>get
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.event.prototype.limit">
+            function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>limit
+            <span class="apidocSignatureSpan">(limit)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.event.prototype.list">
+            function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>list
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.event.prototype.ordinal">
+            function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>ordinal
+            <span class="apidocSignatureSpan">(order)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.event.prototype.ref">
+            function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>ref
+            <span class="apidocSignatureSpan">(ref)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.event.prototype.remove">
+            function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>remove
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.event.prototype.start">
+            function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>start
+            <span class="apidocSignatureSpan">(time)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.event.prototype.time">
+            function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>time
+            <span class="apidocSignatureSpan">(time)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.event.prototype.type">
+            function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>type
+            <span class="apidocSignatureSpan">(type)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.event.prototype.update">
+            function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>update
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.event.prototype.withFields">
+            function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>withFields
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.event.prototype.withoutFields">
+            function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>withoutFields
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.orchestrate.graph">module orchestrate.graph</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.graph.graph">
+            function <span class="apidocSignatureSpan">orchestrate.</span>graph
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.graph.super_">
+            function <span class="apidocSignatureSpan">orchestrate.graph.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.orchestrate.graph.prototype">module orchestrate.graph.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.graph.prototype._execute">
+            function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>_execute
+            <span class="apidocSignatureSpan">(method)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.graph.prototype._quote">
+            function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>_quote
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.graph.prototype.create">
+            function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>create
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.graph.prototype.data">
+            function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>data
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.graph.prototype.from">
+            function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>from
+            <span class="apidocSignatureSpan">(collection, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.graph.prototype.get">
+            function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>get
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.graph.prototype.limit">
+            function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>limit
+            <span class="apidocSignatureSpan">(limit)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.graph.prototype.offset">
+            function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>offset
+            <span class="apidocSignatureSpan">(offset)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.graph.prototype.ref">
+            function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>ref
+            <span class="apidocSignatureSpan">(ref)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.graph.prototype.related">
+            function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>related
+            <span class="apidocSignatureSpan">(kind)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.graph.prototype.remove">
+            function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>remove
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.graph.prototype.to">
+            function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>to
+            <span class="apidocSignatureSpan">(toCollection, toKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.graph.prototype.withFields">
+            function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>withFields
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.graph.prototype.withoutFields">
+            function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>withoutFields
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.orchestrate.patch">module orchestrate.patch</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.patch.patch">
+            function <span class="apidocSignatureSpan">orchestrate.</span>patch
+            <span class="apidocSignatureSpan">(collection, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.patch.super_">
+            function <span class="apidocSignatureSpan">orchestrate.patch.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.orchestrate.patch.prototype">module orchestrate.patch.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.patch.prototype.add">
+            function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>add
+            <span class="apidocSignatureSpan">(path, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.patch.prototype.append">
+            function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>append
+            <span class="apidocSignatureSpan">(path, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.patch.prototype.apply">
+            function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>apply
+            <span class="apidocSignatureSpan">(match)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.patch.prototype.copy">
+            function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>copy
+            <span class="apidocSignatureSpan">(from, path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.patch.prototype.inc">
+            function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>inc
+            <span class="apidocSignatureSpan">(path, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.patch.prototype.init">
+            function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>init
+            <span class="apidocSignatureSpan">(path, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.patch.prototype.merge">
+            function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>merge
+            <span class="apidocSignatureSpan">(path, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.patch.prototype.move">
+            function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>move
+            <span class="apidocSignatureSpan">(from, path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.patch.prototype.patch">
+            function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>patch
+            <span class="apidocSignatureSpan">(path, value, conditional)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.patch.prototype.patchIf">
+            function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>patchIf
+            <span class="apidocSignatureSpan">(path, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.patch.prototype.remove">
+            function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>remove
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.patch.prototype.replace">
+            function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>replace
+            <span class="apidocSignatureSpan">(path, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.patch.prototype.test">
+            function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>test
+            <span class="apidocSignatureSpan">(path, value, negate)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.patch.prototype.testNot">
+            function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>testNot
+            <span class="apidocSignatureSpan">(path, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.patch.prototype.upsert">
+            function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>upsert
+            <span class="apidocSignatureSpan">(upsert)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.orchestrate.search">module orchestrate.search</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.search.search">
+            function <span class="apidocSignatureSpan">orchestrate.</span>search
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.search.super_">
+            function <span class="apidocSignatureSpan">orchestrate.search.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.orchestrate.search.prototype">module orchestrate.search.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.search.prototype._execute">
+            function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>_execute
+            <span class="apidocSignatureSpan">(method)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.search.prototype._generateSort">
+            function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>_generateSort
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.search.prototype.aggregate">
+            function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>aggregate
+            <span class="apidocSignatureSpan">(type, path, args)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.search.prototype.collection">
+            function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>collection
+            <span class="apidocSignatureSpan">(collection)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.search.prototype.distance">
+            function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>distance
+            <span class="apidocSignatureSpan">(path, buckets)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.search.prototype.kinds">
+            function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>kinds
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.search.prototype.limit">
+            function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>limit
+            <span class="apidocSignatureSpan">(limit)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.search.prototype.offset">
+            function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>offset
+            <span class="apidocSignatureSpan">(offset)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.search.prototype.query">
+            function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>query
+            <span class="apidocSignatureSpan">(query)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.search.prototype.range">
+            function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>range
+            <span class="apidocSignatureSpan">(path, buckets)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.search.prototype.sort">
+            function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>sort
+            <span class="apidocSignatureSpan">(field, order)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.search.prototype.sortBy">
+            function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>sortBy
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.search.prototype.sortRandom">
+            function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>sortRandom
+            <span class="apidocSignatureSpan">(seedValue)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.search.prototype.stats">
+            function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>stats
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.search.prototype.time_series">
+            function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>time_series
+            <span class="apidocSignatureSpan">(path, time, timezone)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.search.prototype.top_values">
+            function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>top_values
+            <span class="apidocSignatureSpan">(path, offset, limit)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.search.prototype.withFields">
+            function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>withFields
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.search.prototype.withoutFields">
+            function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>withoutFields
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.orchestrate.toString">module orchestrate.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.orchestrate.toString.toString">
+            function <span class="apidocSignatureSpan">orchestrate.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.orchestrate" id="apidoc.module.orchestrate">module orchestrate</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.orchestrate" id="apidoc.element.orchestrate.orchestrate">
+        function <span class="apidocSignatureSpan"></span>orchestrate
+        <span class="apidocSignatureSpan">(token, apiEndpoint)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Client(token, apiEndpoint) {
+  assert(token, 'API key required.');
+  if (!(this instanceof Client)) {
+    return new Client(token, apiEndpoint);
+  }
+
+<span class="apidocCodeCommentSpan">  /**
+   * HTTP content-type.
+   * @type {string}
+   */
+</span>  this.contentType = 'application/json';
+
+  /**
+   * API token used for HTTP Authentication.
+   * @type {string}
+   * @protected
+   */
+  this._token = token;
+
+  /**
+   * API Endpoint used for connecting to DB.
+   * @type {string}
+   * @protected
+   */
+  this._apiEndPoint = apiEndpoint || this.constructor.ApiEndPoint;
+
+  /**
+   * Identifies the orchestrate.js client as the UserAgent to Orchestrate Service.
+   * @type {string}
+   * @protected
+   */
+  this._userAgent = 'orchestrate.js/' + pjson.version + ' (Bowery.io; node.js ' + process.version + ')';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.bucket_builder" id="apidoc.element.orchestrate.bucket_builder">
+        function <span class="apidocSignatureSpan">orchestrate.</span>bucket_builder
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BucketBuilder() {
+  this.buckets = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.builder" id="apidoc.element.orchestrate.builder">
+        function <span class="apidocSignatureSpan">orchestrate.</span>builder
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Builder() {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.client" id="apidoc.element.orchestrate.client">
+        function <span class="apidocSignatureSpan">orchestrate.</span>client
+        <span class="apidocSignatureSpan">(token, apiEndpoint)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Client(token, apiEndpoint) {
+  assert(token, 'API key required.');
+  if (!(this instanceof Client)) {
+    return new Client(token, apiEndpoint);
+  }
+
+<span class="apidocCodeCommentSpan">  /**
+   * HTTP content-type.
+   * @type {string}
+   */
+</span>  this.contentType = 'application/json';
+
+  /**
+   * API token used for HTTP Authentication.
+   * @type {string}
+   * @protected
+   */
+  this._token = token;
+
+  /**
+   * API Endpoint used for connecting to DB.
+   * @type {string}
+   * @protected
+   */
+  this._apiEndPoint = apiEndpoint || this.constructor.ApiEndPoint;
+
+  /**
+   * Identifies the orchestrate.js client as the UserAgent to Orchestrate Service.
+   * @type {string}
+   * @protected
+   */
+  this._userAgent = 'orchestrate.js/' + pjson.version + ' (Bowery.io; node.js ' + process.version + ')';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.event" id="apidoc.element.orchestrate.event">
+        function <span class="apidocSignatureSpan">orchestrate.</span>event
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventBuilder() {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.graph" id="apidoc.element.orchestrate.graph">
+        function <span class="apidocSignatureSpan">orchestrate.</span>graph
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GraphBuilder() {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.patch" id="apidoc.element.orchestrate.patch">
+        function <span class="apidocSignatureSpan">orchestrate.</span>patch
+        <span class="apidocSignatureSpan">(collection, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function PatchBuilder(collection, key) {
+  this._collection = collection;
+  this._key = key;
+  this._ops = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+* Convenience method for creating a conditional nested patch op. Just calls
+* PatchBuilder.prototype.patch with 'true' for the conditional argument.
+* @param {string} path - JSON document path; delimited by periods or slashes
+* @param {PatchBuilder|Array} value - Patch ops to apply.
+*/
+PatchBuilder.prototype.patchIf = function (path, value) {
+ return this.<span class="apidocCodeKeywordSpan">patch</span>(path, value, true);
+}
+
+/**
+* Make this patch an 'upsert'. If the key does not exist in the collection,
+* it will be created as an empty Json Object, then the patch applied.
+* Call with true or with no argument to enable upsert. The default behavior
+* is non-upsert, where the response will be 404 if trying to patch a key
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.search" id="apidoc.element.orchestrate.search">
+        function <span class="apidocSignatureSpan">orchestrate.</span>search
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SearchBuilder() {
+  this._sortClauses = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+## Search
+
+To run a quick search, you can simply provide the collection you'd like to search within, your query, and optionally, any query
+ parameters like a `list` or `sort` argument. Currently, Orchestrate supports the [Lucene query syntax](http://lucene.apache.org
+/core/2_9_4/queryparsersyntax.html).
+
+```javascript
+db.<span class="apidocCodeKeywordSpan">search</span>('collection', 'query', {
+  sort: 'value.sort:desc',
+  limit: 5,
+  offset: 2
+})
+.then(function (result) {
+
+})
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.toString" id="apidoc.element.orchestrate.toString">
+        function <span class="apidocSignatureSpan">orchestrate.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.orchestrate.bucket_builder" id="apidoc.module.orchestrate.bucket_builder">module orchestrate.bucket_builder</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.bucket_builder.bucket_builder" id="apidoc.element.orchestrate.bucket_builder.bucket_builder">
+        function <span class="apidocSignatureSpan">orchestrate.</span>bucket_builder
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BucketBuilder() {
+  this.buckets = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.orchestrate.bucket_builder.prototype" id="apidoc.module.orchestrate.bucket_builder.prototype">module orchestrate.bucket_builder.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.bucket_builder.prototype.after" id="apidoc.element.orchestrate.bucket_builder.prototype.after">
+        function <span class="apidocSignatureSpan">orchestrate.bucket_builder.prototype.</span>after
+        <span class="apidocSignatureSpan">(a)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">after = function (a) {
+  this.buckets.push(a + '~*');
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// these two range aggregates are identical
+// but they use different interfaces
+.range('coolness', '*~1:1~2:2~*')
+.range('radness', function (builder) {
+return builder
+.before(1)
+.between(1, 2)
+.<span class="apidocCodeKeywordSpan">after</span>(2);
+})
+// these two distance aggregates are identical
+// but they use different interfaces
+.distance('location', '*~1:1~2:2~*')
+.distance('hometown', function (builder) {
+return builder
+.before(1)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.bucket_builder.prototype.before" id="apidoc.element.orchestrate.bucket_builder.prototype.before">
+        function <span class="apidocSignatureSpan">orchestrate.bucket_builder.prototype.</span>before
+        <span class="apidocSignatureSpan">(a)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">before = function (a) {
+  this.buckets.push('*~' + a);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+.aggregate('stats', 'value.name')
+.stats('username')
+// these two range aggregates are identical
+// but they use different interfaces
+.range('coolness', '*~1:1~2:2~*')
+.range('radness', function (builder) {
+  return builder
+  .<span class="apidocCodeKeywordSpan">before</span>(1)
+  .between(1, 2)
+  .after(2);
+})
+// these two distance aggregates are identical
+// but they use different interfaces
+.distance('location', '*~1:1~2:2~*')
+.distance('hometown', function (builder) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.bucket_builder.prototype.between" id="apidoc.element.orchestrate.bucket_builder.prototype.between">
+        function <span class="apidocSignatureSpan">orchestrate.bucket_builder.prototype.</span>between
+        <span class="apidocSignatureSpan">(a, b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">between = function (a, b) {
+  this.buckets.push([a, b].join('~'));
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+.stats('username')
+// these two range aggregates are identical
+// but they use different interfaces
+.range('coolness', '*~1:1~2:2~*')
+.range('radness', function (builder) {
+return builder
+.before(1)
+.<span class="apidocCodeKeywordSpan">between</span>(1, 2)
+.after(2);
+})
+// these two distance aggregates are identical
+// but they use different interfaces
+.distance('location', '*~1:1~2:2~*')
+.distance('hometown', function (builder) {
+return builder
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.bucket_builder.prototype.build" id="apidoc.element.orchestrate.bucket_builder.prototype.build">
+        function <span class="apidocSignatureSpan">orchestrate.bucket_builder.prototype.</span>build
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">build = function () {
+  return this.buckets.join(':');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* @param {array|function} buckets
+* @return {SearchBuilder}
+*/
+SearchBuilder.prototype.range = function (path, buckets) {
+ var _buckets = buckets;
+ if (typeof(buckets) === 'function') {
+   _buckets = buckets(new BucketBuilder());
+   if (_buckets.build) _buckets = _buckets.<span class="apidocCodeKeywordSpan">build</span>();
+ }
+
+ return this.aggregate('range', path, _buckets);
+}
+
+/**
+* Add new 'distance' aggregate parameter.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.orchestrate.builder" id="apidoc.module.orchestrate.builder">module orchestrate.builder</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.builder.builder" id="apidoc.element.orchestrate.builder.builder">
+        function <span class="apidocSignatureSpan">orchestrate.</span>builder
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Builder() {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.orchestrate.builder.prototype" id="apidoc.module.orchestrate.builder.prototype">module orchestrate.builder.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.builder.prototype.getDelegate" id="apidoc.element.orchestrate.builder.prototype.getDelegate">
+        function <span class="apidocSignatureSpan">orchestrate.builder.prototype.</span>getDelegate
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getDelegate = function () {
+  return this.delegate
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (this.endTime)     query['endEvent'] =     this.endTime
+    if (this.startTime)   query['startEvent'] =   this.startTime
+    if (this.beforeTime)  query['beforeEvent'] =  this.beforeTime
+    if (this.filterWithFields)     query['with_fields'] =  this.filterWithFields
+    if (this.filterWithoutFields)  query['without_fields'] =  this.filterWithoutFields
+    method = 'get'
+  }
+  var url = this.<span class="apidocCodeKeywordSpan">getDelegate</span>() &amp;&amp; this.getDelegate().generateApiUrl(pathArgs
+, query)
+  return this.getDelegate()['_' + method](url, this.data, header)
+}
+
+
+// Module Exports.
+module.exports = EventBuilder
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.builder.prototype.setDelegate" id="apidoc.element.orchestrate.builder.prototype.setDelegate">
+        function <span class="apidocSignatureSpan">orchestrate.builder.prototype.</span>setDelegate
+        <span class="apidocSignatureSpan">(delegate)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setDelegate = function (delegate) {
+  this.delegate = delegate
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.builder.prototype.setWrite" id="apidoc.element.orchestrate.builder.prototype.setWrite">
+        function <span class="apidocSignatureSpan">orchestrate.builder.prototype.</span>setWrite
+        <span class="apidocSignatureSpan">(write)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setWrite = function (write) {
+  this.write = write
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.orchestrate.event" id="apidoc.module.orchestrate.event">module orchestrate.event</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.event.event" id="apidoc.element.orchestrate.event.event">
+        function <span class="apidocSignatureSpan">orchestrate.</span>event
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventBuilder() {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.event.super_" id="apidoc.element.orchestrate.event.super_">
+        function <span class="apidocSignatureSpan">orchestrate.event.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Builder() {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.orchestrate.event.prototype" id="apidoc.module.orchestrate.event.prototype">module orchestrate.event.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.event.prototype._execute" id="apidoc.element.orchestrate.event.prototype._execute">
+        function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>_execute
+        <span class="apidocSignatureSpan">(method)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_execute = function (method) {
+  var query = {}, pathArgs = [this.collection, this.key, 'events', this.type]
+  var header = {}
+  if (method === 'del') query['purge'] = true
+  if (method !== 'list') {
+    if (this.ref_value)   header['If-Match'] = '"' + this.ref_value + '"'
+    if (this.timestamp)   pathArgs.push(this.timestamp)
+    if (this.order)       pathArgs.push(this.order)
+  } else {
+    if (this.limit_value) query['limit'] =        this.limit_value
+    if (this.afterTime)   query['afterEvent'] =   this.afterTime
+    if (this.endTime)     query['endEvent'] =     this.endTime
+    if (this.startTime)   query['startEvent'] =   this.startTime
+    if (this.beforeTime)  query['beforeEvent'] =  this.beforeTime
+    if (this.filterWithFields)     query['with_fields'] =  this.filterWithFields
+    if (this.filterWithoutFields)  query['without_fields'] =  this.filterWithoutFields
+    method = 'get'
+  }
+  var url = this.getDelegate() &amp;&amp; this.getDelegate().generateApiUrl(pathArgs, query)
+  return this.getDelegate()['_' + method](url, this.data, header)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ */
+EventBuilder.prototype.get = function () {
+  assert(this.collection, 'Collection required.')
+  assert(this.key, 'Key required.')
+  assert(this.type, 'Type required.')
+  assert(this.timestamp, 'Timestamp required.')
+  assert(this.order, 'Ordinal required.')
+  return this.<span class="apidocCodeKeywordSpan">_execute</span>('get')
+}
+
+/**
+ * List events.
+ * @return {Promise}
+ */
+EventBuilder.prototype.list = function () {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.event.prototype.create" id="apidoc.element.orchestrate.event.prototype.create">
+        function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>create
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function () {
+  assert(this.collection, 'Collection required.')
+  assert(this.key, 'Key required.')
+  assert(this.type, 'Type required.')
+  return this._execute('post')
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+For more information about Orchestrate search, [read the docs](http://orchestrate.io/docs/apiref#search).
+
+## Graphs
+An awesome feature Orchestrate includes is the ability to generate graphs between collections. For example, consider the collections
+ `users` and `movies`. Some user Steve will `like` a variety of movies. We can generate this relationship:
+
+```javascript
+db.newGraphBuilder()
+.<span class="apidocCodeKeywordSpan">create</span>()
+.from('users', 'Steve')
+.related('likes')
+.to('movies', 'Superbad')
+```
+
+We can optionally include a JSON object representing the properties of the relationship -- which are distinct from the properties
+ of the two items connected by the relationship -- like this:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.event.prototype.data" id="apidoc.element.orchestrate.event.prototype.data">
+        function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>data
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">data = function (data) {
+  assert(data, 'Data required.')
+  this.data = data
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+We can optionally include a JSON object representing the properties of the relationship -- which are distinct from the properties
+ of the two items connected by the relationship -- like this:
+
+```javascript
+db.newGraphBuilder()
+.create()
+.<span class="apidocCodeKeywordSpan">data</span>({ "rating" : "5 Stars" })
+.from('users', 'Steve')
+.related('likes')
+.to('movies', 'Superbad')
+```
+
+We can use [conditional put statements](https://orchestrate.io/docs/api/#key/value/put-(create/update)) to determine whether or
+not the store operation will occur. If a ref value is provided an `update` will occur if there is a valid match, if false is provided
+, a `create` will occur if there is no match.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.event.prototype.end" id="apidoc.element.orchestrate.event.prototype.end">
+        function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>end
+        <span class="apidocSignatureSpan">(time)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">end = function (time) {
+  assert(!this.write, 'Invalid operation.')
+  assert(time &amp;&amp; typeof time == 'number', 'Time required (number).')
+  this.endTime = time
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Listing events:
+
+```javascript
+db.newEventReader()
+.from('users', 'Steve')
+.start(1384534722568)
+.<span class="apidocCodeKeywordSpan">end</span>(1384535726540)
+.type('update')
+.list()
+```
+
+Getting a specific event:
+
+``` javascript
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.event.prototype.from" id="apidoc.element.orchestrate.event.prototype.from">
+        function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>from
+        <span class="apidocSignatureSpan">(collection, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">from = function (collection, key) {
+  assert(collection &amp;&amp; key, 'Collection and key required.')
+  this.collection = collection
+  this.key = key
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## Graphs
+An awesome feature Orchestrate includes is the ability to generate graphs between collections. For example, consider the collections
+ `users` and `movies`. Some user Steve will `like` a variety of movies. We can generate this relationship:
+
+```javascript
+db.newGraphBuilder()
+.create()
+.<span class="apidocCodeKeywordSpan">from</span>('users', 'Steve')
+.related('likes')
+.to('movies', 'Superbad')
+```
+
+We can optionally include a JSON object representing the properties of the relationship -- which are distinct from the properties
+ of the two items connected by the relationship -- like this:
+
+```javascript
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.event.prototype.get" id="apidoc.element.orchestrate.event.prototype.get">
+        function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>get
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function () {
+  assert(this.collection, 'Collection required.')
+  assert(this.key, 'Key required.')
+  assert(this.type, 'Type required.')
+  assert(this.timestamp, 'Timestamp required.')
+  assert(this.order, 'Ordinal required.')
+  return this._execute('get')
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+All queries are promise based. Just as a typical function would return a callback containing an error field followed by a result
+, orchestrate.js returns `then` and `fail` methods.
+
+## Key-Value
+
+To get a value:
+
+```javascript
+db.<span class="apidocCodeKeywordSpan">get</span>('collection', 'key')
+.then(function (result) {
+
+})
+.fail(function (err) {
+
+})
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.event.prototype.limit" id="apidoc.element.orchestrate.event.prototype.limit">
+        function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>limit
+        <span class="apidocSignatureSpan">(limit)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">limit = function (limit) {
+  assert(limit, 'Limit required.')
+  this.limit_value = limit
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+The more verbose `SearchBuilder` is also available for a more stately approach:
+
+```javascript
+db.newSearchBuilder()
+.collection('users')
+.<span class="apidocCodeKeywordSpan">limit</span>(100)
+.offset(10)
+.sortBy('value.name', 'value.age:asc')
+.aggregate('stats', 'value.name')
+.stats('username')
+// these two range aggregates are identical
+// but they use different interfaces
+.range('coolness', '*~1:1~2:2~*')
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.event.prototype.list" id="apidoc.element.orchestrate.event.prototype.list">
+        function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>list
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">list = function () {
+  assert(this.collection, 'Collection required.')
+  assert(this.key, 'Key required.')
+  assert(this.type, 'Type required.')
+  return this._execute('list')
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+There is no need to explicitly create a collection. Collections are implicitly created when putting a key/value object.
+
+## Collection Listing
+
+To list items in a collection, you can use [collection listings](https://orchestrate.io/docs/api/#key/value/list).
+
+```javascript
+db.<span class="apidocCodeKeywordSpan">list</span>('collection')
+.then(function (result) {
+  var items = result.body.results;
+})
+.fail(function (err) {
+
+})
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.event.prototype.ordinal" id="apidoc.element.orchestrate.event.prototype.ordinal">
+        function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>ordinal
+        <span class="apidocSignatureSpan">(order)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ordinal = function (order) {
+  assert(['number', 'string'].indexOf(typeof(order)) !== -1, 'Ordinal must be a number or a string.')
+  this.order = order
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Getting a specific event:
+
+``` javascript
+db.newEventReader()
+.from('users', 'Steve')
+.time(1369832019085)
+.<span class="apidocCodeKeywordSpan">ordinal</span>(9)
+.type('update')
+.get()
+```
+
+Updating an event:
+
+``` javascript
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.event.prototype.ref" id="apidoc.element.orchestrate.event.prototype.ref">
+        function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>ref
+        <span class="apidocSignatureSpan">(ref)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ref = function (ref) {
+  assert(ref, 'Ref required.')
+  this.ref_value = ref
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+```javascript
+// update if ref matches
+db.newGraphBuilder()
+.create()
+.data({ "rating" : "4 Stars" })
+.<span class="apidocCodeKeywordSpan">ref</span>('cbb48f9464612f20')
+.from('users', 'Steve')
+.related('likes')
+.to('movies', 'Superbad')
+
+// create if no previous relationship
+db.newGraphBuilder()
+.create()
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.event.prototype.remove" id="apidoc.element.orchestrate.event.prototype.remove">
+        function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>remove
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remove = function () {
+  assert(this.collection, 'Collection required.')
+  assert(this.key, 'Key required.')
+  assert(this.type, 'Type required.')
+  assert(this.timestamp, 'Timestamp required.')
+  assert(this.order, 'Ordinal required.')
+  return this._execute('del')
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+db.put('collection', 'key', data, 'cbb48f9464612f20') // update
+db.put('collection', 'key', data, false) // create
+```
+
+To remove a value:
+
+```javascript
+db.<span class="apidocCodeKeywordSpan">remove</span>('collection', 'key', true)
+.then(function (result) {
+
+})
+.fail(function (err) {
+
+})
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.event.prototype.start" id="apidoc.element.orchestrate.event.prototype.start">
+        function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>start
+        <span class="apidocSignatureSpan">(time)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">start = function (time) {
+  assert(!this.write, 'Invalid operation.')
+  assert(time &amp;&amp; typeof time == 'number', 'Time required (number).')
+  this.startTime = time
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+Listing events:
+
+```javascript
+db.newEventReader()
+.from('users', 'Steve')
+.<span class="apidocCodeKeywordSpan">start</span>(1384534722568)
+.end(1384535726540)
+.type('update')
+.list()
+```
+
+Getting a specific event:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.event.prototype.time" id="apidoc.element.orchestrate.event.prototype.time">
+        function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>time
+        <span class="apidocSignatureSpan">(time)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">time = function (time) {
+  assert(time &amp;&amp; typeof time == 'number', 'Time required (number).')
+  this.timestamp = time
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Creating an event at a specified time:
+
+```javascript
+db.newEventBuilder()
+.from('users', 'Steve')
+.type('update')
+.<span class="apidocCodeKeywordSpan">time</span>(1384534722568)
+.data({"text": "Hello!"})
+.create()
+```
+
+Listing events:
+
+```javascript
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.event.prototype.type" id="apidoc.element.orchestrate.event.prototype.type">
+        function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>type
+        <span class="apidocSignatureSpan">(type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">type = function (type) {
+  assert(type, 'Type required.')
+  this.type = type
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Events are time-ordered objects that exist with the context of a Key-Value object. Consider comments on a post or messages in a
+thread.
+
+Creating an event:
+
+```javascript
+db.newEventBuilder()
+.from('users', 'Steve')
+.<span class="apidocCodeKeywordSpan">type</span>('update')
+.data({"text": "Hello!"})
+.create()
+```
+
+Creating an event at a specified time:
+
+```javascript
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.event.prototype.update" id="apidoc.element.orchestrate.event.prototype.update">
+        function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>update
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">update = function () {
+  assert(this.collection, 'Collection required.')
+  assert(this.key, 'Key required.')
+  assert(this.type, 'Type required.')
+  assert(this.timestamp, 'Timestamp required.')
+  assert(this.order, 'Ordinal required.')
+  assert(this.data, 'Data required.')
+  return this._execute('put')
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+.from('users', 'Steve')
+.type('update')
+.time(1369832019085)
+.ordinal(9)
+.data({
+  "text": "Orchestrate is awesome!"
+})
+.<span class="apidocCodeKeywordSpan">update</span>()
+```
+
+Updating an event, conditionally:
+
+``` javascript
+db.newEventBuilder()
+.from('users', 'Steve')
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.event.prototype.withFields" id="apidoc.element.orchestrate.event.prototype.withFields">
+        function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>withFields
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">withFields = function () {
+  this.filterWithFields = this.filterWithFields || [];
+  this.filterWithFields = this.filterWithFields.concat(Array.prototype.slice.call(arguments));
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  return this._execute('del')
+}
+
+/**
+ * Enable field-filtering, with a whitelist of field names
+ * @example
+ * // adds a whitelist field-filter for the field value.age
+ * eventBuilder.<span class="apidocCodeKeywordSpan">withFields</span>('value.age');
+ * @example
+ * // adds two whitelist field-filters, for the fields value.name and value.age
+ * eventBuilder.withFields('value.name', 'value.age');
+ * @param {...string} fieldNames Fully-qualified field names to use as whitelist field-filters
+ * @return {EventBuilder}
+ */
+EventBuilder.prototype.withFields = function () {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.event.prototype.withoutFields" id="apidoc.element.orchestrate.event.prototype.withoutFields">
+        function <span class="apidocSignatureSpan">orchestrate.event.prototype.</span>withoutFields
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">withoutFields = function () {
+  this.filterWithoutFields = this.filterWithoutFields || [];
+  this.filterWithoutFields = this.filterWithoutFields.concat(Array.prototype.slice.call(arguments));
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  return this;
+}
+
+/**
+ * Enable field-filtering, with a blacklist of field names
+ * @example
+ * // adds a blacklist field-filter for the field value.age
+ * eventBuilder.<span class="apidocCodeKeywordSpan">withoutFields</span>('value.age');
+ * @example
+ * // adds two blacklist field-filters, for the fields value.name and value.age
+ * eventBuilder.withoutFields('value.name', 'value.age');
+ * @param {...string} fieldNames Fully-qualified field names to use as blacklist field-filters
+ * @return {EventBuilder}
+ */
+EventBuilder.prototype.withoutFields = function () {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.orchestrate.graph" id="apidoc.module.orchestrate.graph">module orchestrate.graph</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.graph.graph" id="apidoc.element.orchestrate.graph.graph">
+        function <span class="apidocSignatureSpan">orchestrate.</span>graph
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function GraphBuilder() {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.graph.super_" id="apidoc.element.orchestrate.graph.super_">
+        function <span class="apidocSignatureSpan">orchestrate.graph.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Builder() {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.orchestrate.graph.prototype" id="apidoc.module.orchestrate.graph.prototype">module orchestrate.graph.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.graph.prototype._execute" id="apidoc.element.orchestrate.graph.prototype._execute">
+        function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>_execute
+        <span class="apidocSignatureSpan">(method)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_execute = function (method) {
+  // Make sure we have a from item key
+  assert(this.collection &amp;&amp; this.key, "'from' collection and key required.")
+
+  // Make sure that the kind array is non-empty, and that its elements are non-empty strings.
+  assert(this.kind &amp;&amp; this.kind.length &gt; 0, 'Kind of relation required.')
+  for (var i = 0; i &lt; this.kind.length; i++) {
+    var k = this.kind[i];
+    assert(typeof(k) === "string" &amp;&amp; k.length &gt; 0, 'Kind must be a non-empty string')
+  }
+
+  // Create an array of path components.
+  var pathArgs = []
+  pathArgs.push(this.collection)
+  pathArgs.push(this.key)
+  // The 'relation' path component is used for creating and retrieving individual relations.
+  // The 'relations' path component is used for traversing single-hop or multi-hop relationships.
+  if (this.write || (this._method === "get" &amp;&amp; this.toCollection &amp;&amp; this.toKey)) {
+    pathArgs.push('relation')
+  } else {
+    pathArgs.push('relations')
+  }
+  pathArgs = pathArgs.concat(this.kind)
+
+  // Destination collection and key are only mandatory during PUT and (non-listing) GET.
+  if (this.toCollection) pathArgs.push(this.toCollection)
+  if (this.toKey) pathArgs.push(this.toKey)
+
+  // Build the querystring
+  var query = {}
+  if (this._method == 'del') query['purge'] = true
+  if (this.limit_value)      query['limit'] = this.limit_value
+  if (this.offset_value)     query['offset'] = this.offset_value
+  if (this.filterWithFields)      query['with_fields'] = this.filterWithFields
+  if (this.filterWithoutFields)   query['without_fields'] = this.filterWithoutFields
+
+  // Build headers
+  var header = {}
+  if (typeof(this.ref) === 'string') {
+    header['If-Match'] = this._quote(this.ref)
+  } else if (typeof(this.ref) === 'boolean' &amp;&amp; this.ref === false) {
+    header['If-None-Match'] = '"*"'
+  }
+
+  // Build the URL and return a callable delegate for this request
+  var url = this.getDelegate() &amp;&amp; this.getDelegate().generateApiUrl(pathArgs, query)
+  return this.getDelegate()['_' + this._method](url, this.data, header)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ */
+EventBuilder.prototype.get = function () {
+  assert(this.collection, 'Collection required.')
+  assert(this.key, 'Key required.')
+  assert(this.type, 'Type required.')
+  assert(this.timestamp, 'Timestamp required.')
+  assert(this.order, 'Ordinal required.')
+  return this.<span class="apidocCodeKeywordSpan">_execute</span>('get')
+}
+
+/**
+ * List events.
+ * @return {Promise}
+ */
+EventBuilder.prototype.list = function () {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.graph.prototype._quote" id="apidoc.element.orchestrate.graph.prototype._quote">
+        function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>_quote
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_quote = function (str) {
+  return str.charAt(0) == '"' ? str : '"' + str + '"'
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (this.offset_value)     query['offset'] = this.offset_value
+if (this.filterWithFields)      query['with_fields'] = this.filterWithFields
+if (this.filterWithoutFields)   query['without_fields'] = this.filterWithoutFields
+
+// Build headers
+var header = {}
+if (typeof(this.ref) === 'string') {
+  header['If-Match'] = this.<span class="apidocCodeKeywordSpan">_quote</span>(this.ref)
+} else if (typeof(this.ref) === 'boolean' &amp;&amp; this.ref === false) {
+  header['If-None-Match'] = '"*"'
+}
+
+// Build the URL and return a callable delegate for this request
+var url = this.getDelegate() &amp;&amp; this.getDelegate().generateApiUrl(pathArgs, query)
+return this.getDelegate()['_' + this._method](url, this.data, header)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.graph.prototype.create" id="apidoc.element.orchestrate.graph.prototype.create">
+        function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>create
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function () {
+  this._method = 'put'
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+For more information about Orchestrate search, [read the docs](http://orchestrate.io/docs/apiref#search).
+
+## Graphs
+An awesome feature Orchestrate includes is the ability to generate graphs between collections. For example, consider the collections
+ `users` and `movies`. Some user Steve will `like` a variety of movies. We can generate this relationship:
+
+```javascript
+db.newGraphBuilder()
+.<span class="apidocCodeKeywordSpan">create</span>()
+.from('users', 'Steve')
+.related('likes')
+.to('movies', 'Superbad')
+```
+
+We can optionally include a JSON object representing the properties of the relationship -- which are distinct from the properties
+ of the two items connected by the relationship -- like this:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.graph.prototype.data" id="apidoc.element.orchestrate.graph.prototype.data">
+        function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>data
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">data = function (data) {
+  assert(data, 'Data required.')
+  this.data = data
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+We can optionally include a JSON object representing the properties of the relationship -- which are distinct from the properties
+ of the two items connected by the relationship -- like this:
+
+```javascript
+db.newGraphBuilder()
+.create()
+.<span class="apidocCodeKeywordSpan">data</span>({ "rating" : "5 Stars" })
+.from('users', 'Steve')
+.related('likes')
+.to('movies', 'Superbad')
+```
+
+We can use [conditional put statements](https://orchestrate.io/docs/api/#key/value/put-(create/update)) to determine whether or
+not the store operation will occur. If a ref value is provided an `update` will occur if there is a valid match, if false is provided
+, a `create` will occur if there is no match.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.graph.prototype.from" id="apidoc.element.orchestrate.graph.prototype.from">
+        function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>from
+        <span class="apidocSignatureSpan">(collection, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">from = function (collection, key) {
+  assert(collection &amp;&amp; key, 'Collection and key required.')
+  this.collection = collection
+  this.key = key
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## Graphs
+An awesome feature Orchestrate includes is the ability to generate graphs between collections. For example, consider the collections
+ `users` and `movies`. Some user Steve will `like` a variety of movies. We can generate this relationship:
+
+```javascript
+db.newGraphBuilder()
+.create()
+.<span class="apidocCodeKeywordSpan">from</span>('users', 'Steve')
+.related('likes')
+.to('movies', 'Superbad')
+```
+
+We can optionally include a JSON object representing the properties of the relationship -- which are distinct from the properties
+ of the two items connected by the relationship -- like this:
+
+```javascript
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.graph.prototype.get" id="apidoc.element.orchestrate.graph.prototype.get">
+        function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>get
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function () {
+  this._method = 'get'
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+All queries are promise based. Just as a typical function would return a callback containing an error field followed by a result
+, orchestrate.js returns `then` and `fail` methods.
+
+## Key-Value
+
+To get a value:
+
+```javascript
+db.<span class="apidocCodeKeywordSpan">get</span>('collection', 'key')
+.then(function (result) {
+
+})
+.fail(function (err) {
+
+})
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.graph.prototype.limit" id="apidoc.element.orchestrate.graph.prototype.limit">
+        function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>limit
+        <span class="apidocSignatureSpan">(limit)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">limit = function (limit) {
+  assert(limit || limit == 0, 'Limit required.')
+  this.limit_value = limit
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+The more verbose `SearchBuilder` is also available for a more stately approach:
+
+```javascript
+db.newSearchBuilder()
+.collection('users')
+.<span class="apidocCodeKeywordSpan">limit</span>(100)
+.offset(10)
+.sortBy('value.name', 'value.age:asc')
+.aggregate('stats', 'value.name')
+.stats('username')
+// these two range aggregates are identical
+// but they use different interfaces
+.range('coolness', '*~1:1~2:2~*')
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.graph.prototype.offset" id="apidoc.element.orchestrate.graph.prototype.offset">
+        function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>offset
+        <span class="apidocSignatureSpan">(offset)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">offset = function (offset) {
+  assert.equal(typeof offset, 'number', 'Offset required.')
+  this.offset_value = offset
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+The more verbose `SearchBuilder` is also available for a more stately approach:
+
+```javascript
+db.newSearchBuilder()
+.collection('users')
+.limit(100)
+.<span class="apidocCodeKeywordSpan">offset</span>(10)
+.sortBy('value.name', 'value.age:asc')
+.aggregate('stats', 'value.name')
+.stats('username')
+// these two range aggregates are identical
+// but they use different interfaces
+.range('coolness', '*~1:1~2:2~*')
+.range('radness', function (builder) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.graph.prototype.ref" id="apidoc.element.orchestrate.graph.prototype.ref">
+        function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>ref
+        <span class="apidocSignatureSpan">(ref)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ref = function (ref) {
+  assert(typeof ref === 'string' || typeof ref === 'boolean', 'Ref required.')
+  this.ref = ref
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+```javascript
+// update if ref matches
+db.newGraphBuilder()
+.create()
+.data({ "rating" : "4 Stars" })
+.<span class="apidocCodeKeywordSpan">ref</span>('cbb48f9464612f20')
+.from('users', 'Steve')
+.related('likes')
+.to('movies', 'Superbad')
+
+// create if no previous relationship
+db.newGraphBuilder()
+.create()
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.graph.prototype.related" id="apidoc.element.orchestrate.graph.prototype.related">
+        function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>related
+        <span class="apidocSignatureSpan">(kind)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">related = function (kind) {
+  assert(kind, 'Kind of relation required.')
+
+  // Hoist the kind argument into an array.
+  if (util.isArray(kind)) {
+    this.kind = kind;
+  } else {
+    this.kind = Array.prototype.slice.call(arguments, 0)
+  }
+
+  // Make sure that the kind array is non-empty, and that its elements are non-empty strings.
+  assert(this.kind.length &gt; 0, 'Kind of relation required.')
+  for (var i = 0; i &lt; this.kind.length; i++) {
+    var k = this.kind[i];
+    assert(typeof(k) === "string" &amp;&amp; k.length &gt; 0, 'Kind must be a non-empty string')
+  }
+
+  // Call the execute method in any of these scenarios:
+  // (1) This is a read-only GraphBuilder, with toCollection &amp; toKey empty. The execute
+  //     function will list (GET) all related items for the collection &amp; key.
+  // (2) This is a read-only GraphBuilder, with toCollection &amp; toKey non-empty. The
+  //     execute function will retrieve (GET) the data of a specific relationship.
+  // (3) This is a write-only GraphBuilder, with toCollection &amp; toKey non-empty. The
+  //     execute function will submit (PUT) a new relationship.
+  if (!this.write || (this.toCollection &amp;&amp; this.toKey)) {
+    return this._execute(this._method)
+  }
+  // Without toCollection and toKey on this write-only GraphBuilder, just return
+  // the builder, since there are still missing params.
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+## Graphs
+An awesome feature Orchestrate includes is the ability to generate graphs between collections. For example, consider the collections
+ `users` and `movies`. Some user Steve will `like` a variety of movies. We can generate this relationship:
+
+```javascript
+db.newGraphBuilder()
+.create()
+.from('users', 'Steve')
+.<span class="apidocCodeKeywordSpan">related</span>('likes')
+.to('movies', 'Superbad')
+```
+
+We can optionally include a JSON object representing the properties of the relationship -- which are distinct from the properties
+ of the two items connected by the relationship -- like this:
+
+```javascript
+db.newGraphBuilder()
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.graph.prototype.remove" id="apidoc.element.orchestrate.graph.prototype.remove">
+        function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>remove
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remove = function () {
+  this._method = 'del'
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+db.put('collection', 'key', data, 'cbb48f9464612f20') // update
+db.put('collection', 'key', data, false) // create
+```
+
+To remove a value:
+
+```javascript
+db.<span class="apidocCodeKeywordSpan">remove</span>('collection', 'key', true)
+.then(function (result) {
+
+})
+.fail(function (err) {
+
+})
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.graph.prototype.to" id="apidoc.element.orchestrate.graph.prototype.to">
+        function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>to
+        <span class="apidocSignatureSpan">(toCollection, toKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">to = function (toCollection, toKey) {
+  assert(toCollection &amp;&amp; toKey, 'toCollection and toKey required.')
+  this.toCollection = toCollection
+  this.toKey = toKey
+
+  // Call the execute method only if the relationship kind has already been set.
+  // Otherwise, just return the builder, since there ae still missing params.
+  if (this.kind) {
+    return this._execute(this._method)
+  }
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+An awesome feature Orchestrate includes is the ability to generate graphs between collections. For example, consider the collections
+ `users` and `movies`. Some user Steve will `like` a variety of movies. We can generate this relationship:
+
+```javascript
+db.newGraphBuilder()
+.create()
+.from('users', 'Steve')
+.related('likes')
+.<span class="apidocCodeKeywordSpan">to</span>('movies', 'Superbad')
+```
+
+We can optionally include a JSON object representing the properties of the relationship -- which are distinct from the properties
+ of the two items connected by the relationship -- like this:
+
+```javascript
+db.newGraphBuilder()
+.create()
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.graph.prototype.withFields" id="apidoc.element.orchestrate.graph.prototype.withFields">
+        function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>withFields
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">withFields = function () {
+  this.filterWithFields = this.filterWithFields || [];
+  this.filterWithFields = this.filterWithFields.concat(Array.prototype.slice.call(arguments));
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  return this._execute('del')
+}
+
+/**
+ * Enable field-filtering, with a whitelist of field names
+ * @example
+ * // adds a whitelist field-filter for the field value.age
+ * eventBuilder.<span class="apidocCodeKeywordSpan">withFields</span>('value.age');
+ * @example
+ * // adds two whitelist field-filters, for the fields value.name and value.age
+ * eventBuilder.withFields('value.name', 'value.age');
+ * @param {...string} fieldNames Fully-qualified field names to use as whitelist field-filters
+ * @return {EventBuilder}
+ */
+EventBuilder.prototype.withFields = function () {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.graph.prototype.withoutFields" id="apidoc.element.orchestrate.graph.prototype.withoutFields">
+        function <span class="apidocSignatureSpan">orchestrate.graph.prototype.</span>withoutFields
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">withoutFields = function () {
+  this.filterWithoutFields = this.filterWithoutFields || [];
+  this.filterWithoutFields = this.filterWithoutFields.concat(Array.prototype.slice.call(arguments));
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  return this;
+}
+
+/**
+ * Enable field-filtering, with a blacklist of field names
+ * @example
+ * // adds a blacklist field-filter for the field value.age
+ * eventBuilder.<span class="apidocCodeKeywordSpan">withoutFields</span>('value.age');
+ * @example
+ * // adds two blacklist field-filters, for the fields value.name and value.age
+ * eventBuilder.withoutFields('value.name', 'value.age');
+ * @param {...string} fieldNames Fully-qualified field names to use as blacklist field-filters
+ * @return {EventBuilder}
+ */
+EventBuilder.prototype.withoutFields = function () {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.orchestrate.patch" id="apidoc.module.orchestrate.patch">module orchestrate.patch</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.patch.patch" id="apidoc.element.orchestrate.patch.patch">
+        function <span class="apidocSignatureSpan">orchestrate.</span>patch
+        <span class="apidocSignatureSpan">(collection, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function PatchBuilder(collection, key) {
+  this._collection = collection;
+  this._key = key;
+  this._ops = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+* Convenience method for creating a conditional nested patch op. Just calls
+* PatchBuilder.prototype.patch with 'true' for the conditional argument.
+* @param {string} path - JSON document path; delimited by periods or slashes
+* @param {PatchBuilder|Array} value - Patch ops to apply.
+*/
+PatchBuilder.prototype.patchIf = function (path, value) {
+ return this.<span class="apidocCodeKeywordSpan">patch</span>(path, value, true);
+}
+
+/**
+* Make this patch an 'upsert'. If the key does not exist in the collection,
+* it will be created as an empty Json Object, then the patch applied.
+* Call with true or with no argument to enable upsert. The default behavior
+* is non-upsert, where the response will be 404 if trying to patch a key
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.patch.super_" id="apidoc.element.orchestrate.patch.super_">
+        function <span class="apidocSignatureSpan">orchestrate.patch.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Builder() {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.orchestrate.patch.prototype" id="apidoc.module.orchestrate.patch.prototype">module orchestrate.patch.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.patch.prototype.add" id="apidoc.element.orchestrate.patch.prototype.add">
+        function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>add
+        <span class="apidocSignatureSpan">(path, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">add = function (path, value) {
+  assert(path, 'Add requires a path parameter.');
+  this._ops.push({"op": "add", "path": path, "value": value});
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+})
+```
+
+Alternatively, you can apply a series of controlled changes to a key by constructing a patch:
+
+```javascript
+db.newPatchBuilder('collection', 'key')
+.<span class="apidocCodeKeywordSpan">add</span>('age', 25)
+.replace('hometown', 'NY')
+.apply()
+.then(function (result) {
+    // All changes were applied successfully
+})
+.fail(function (err) {
+   // No changes were applied
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.patch.prototype.append" id="apidoc.element.orchestrate.patch.prototype.append">
+        function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>append
+        <span class="apidocSignatureSpan">(path, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">append = function (path, value) {
+  assert(path, 'Append requires a path parameter.');
+  assert(value !== undefined, 'Append requires a value parameter.');
+  this._ops.push({"op": "append", "path": path, "value": value});
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.patch.prototype.apply" id="apidoc.element.orchestrate.patch.prototype.apply">
+        function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>apply
+        <span class="apidocSignatureSpan">(match)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">apply = function (match) {
+  assert(this.getDelegate(), 'No client delegate assigned');
+  return this.getDelegate().patch(this._collection, this._key, this._ops,
+    {match:match,upsert:this._upsert === true})
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Alternatively, you can apply a series of controlled changes to a key by constructing a patch:
+
+```javascript
+db.newPatchBuilder('collection', 'key')
+  .add('age', 25)
+  .replace('hometown', 'NY')
+  .<span class="apidocCodeKeywordSpan">apply</span>()
+  .then(function (result) {
+      // All changes were applied successfully
+  })
+  .fail(function (err) {
+     // No changes were applied
+  })
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.patch.prototype.copy" id="apidoc.element.orchestrate.patch.prototype.copy">
+        function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>copy
+        <span class="apidocSignatureSpan">(from, path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">copy = function (from, path) {
+  assert(from &amp;&amp; path, 'Copy requires from and path parameters.');
+  this._ops.push({"op": "copy", "from": from, "path": path});
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.patch.prototype.inc" id="apidoc.element.orchestrate.patch.prototype.inc">
+        function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>inc
+        <span class="apidocSignatureSpan">(path, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">inc = function (path, value) {
+  assert(path, 'Inc requires a path parameter.');
+  var op = {
+    op: "inc",
+    path: path,
+  };
+  if (value) op.value = value;
+  this._ops.push(op);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.patch.prototype.init" id="apidoc.element.orchestrate.patch.prototype.init">
+        function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>init
+        <span class="apidocSignatureSpan">(path, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (path, value) {
+  assert(path, 'Init requires a path parameter.');
+  assert(value !== undefined, 'Init requires a value parameter.');
+  this._ops.push({"op": "init", "path": path, "value": value});
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.patch.prototype.merge" id="apidoc.element.orchestrate.patch.prototype.merge">
+        function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>merge
+        <span class="apidocSignatureSpan">(path, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">merge = function (path, value) {
+  assert(path, 'Merge requires a path parameter.');
+  assert(value !== undefined, 'Merge requires a value parameter.');
+  this._ops.push({"op": "merge", "path": path, "value": value});
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+})
+```
+
+To merge (or update) new values into an existing key, construct a partial document with the desired changes and then use `merge`:
+
+```javascript
+db.<span class="apidocCodeKeywordSpan">merge</span>('collection', 'key', {
+  "name": "Stephen Kaliski"
+})
+.then(function (result) {
+
+})
+.fail(function (err) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.patch.prototype.move" id="apidoc.element.orchestrate.patch.prototype.move">
+        function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>move
+        <span class="apidocSignatureSpan">(from, path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">move = function (from, path) {
+  assert(from &amp;&amp; path, 'Move requires from and path parameters.');
+  this._ops.push({"op": "move", "from": from, "path": path});
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.patch.prototype.patch" id="apidoc.element.orchestrate.patch.prototype.patch">
+        function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>patch
+        <span class="apidocSignatureSpan">(path, value, conditional)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">patch = function (path, value, conditional) {
+  assert(path, 'Patch Op requires a path parameter.');
+  assert(value !== undefined, 'Patch Op requires a value parameter.');
+  assert(Array.isArray(value) || value instanceof PatchBuilder,
+    'Patch Op value must be an Array of ops or a PatchBuilder.');
+  var ops = value._ops || value;
+  var op = {"op": "patch", "path": path, "value": ops};
+  if (conditional === true) op.conditional = true;
+  this._ops.push(op);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+* Convenience method for creating a conditional nested patch op. Just calls
+* PatchBuilder.prototype.patch with 'true' for the conditional argument.
+* @param {string} path - JSON document path; delimited by periods or slashes
+* @param {PatchBuilder|Array} value - Patch ops to apply.
+*/
+PatchBuilder.prototype.patchIf = function (path, value) {
+ return this.<span class="apidocCodeKeywordSpan">patch</span>(path, value, true);
+}
+
+/**
+* Make this patch an 'upsert'. If the key does not exist in the collection,
+* it will be created as an empty Json Object, then the patch applied.
+* Call with true or with no argument to enable upsert. The default behavior
+* is non-upsert, where the response will be 404 if trying to patch a key
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.patch.prototype.patchIf" id="apidoc.element.orchestrate.patch.prototype.patchIf">
+        function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>patchIf
+        <span class="apidocSignatureSpan">(path, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">patchIf = function (path, value) {
+  return this.patch(path, value, true);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.patch.prototype.remove" id="apidoc.element.orchestrate.patch.prototype.remove">
+        function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>remove
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remove = function (path) {
+  assert(path, 'Remove requires a path parameter.');
+  this._ops.push({"op": "remove", "path": path});
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+db.put('collection', 'key', data, 'cbb48f9464612f20') // update
+db.put('collection', 'key', data, false) // create
+```
+
+To remove a value:
+
+```javascript
+db.<span class="apidocCodeKeywordSpan">remove</span>('collection', 'key', true)
+.then(function (result) {
+
+})
+.fail(function (err) {
+
+})
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.patch.prototype.replace" id="apidoc.element.orchestrate.patch.prototype.replace">
+        function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>replace
+        <span class="apidocSignatureSpan">(path, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">replace = function (path, value) {
+  assert(path, 'Replace requires a path parameter.');
+  this._ops.push({"op": "replace", "path": path, "value": value});
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+Alternatively, you can apply a series of controlled changes to a key by constructing a patch:
+
+```javascript
+db.newPatchBuilder('collection', 'key')
+.add('age', 25)
+.<span class="apidocCodeKeywordSpan">replace</span>('hometown', 'NY')
+.apply()
+.then(function (result) {
+    // All changes were applied successfully
+})
+.fail(function (err) {
+   // No changes were applied
+})
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.patch.prototype.test" id="apidoc.element.orchestrate.patch.prototype.test">
+        function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>test
+        <span class="apidocSignatureSpan">(path, value, negate)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">test = function (path, value, negate) {
+  assert(path, 'Test requires a path parameter.');
+  var op = {"op": "test", "path": path, "value": value};
+  if (negate === true) op.negate = true;
+  this._ops.push(op);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+* Test NON-equality of a value at the specified JSON document path
+* @param {string} path - JSON document path; delimited by periods or slashes
+* @param {Object} value - Value to compare against
+*/
+PatchBuilder.prototype.testNot = function (path, value) {
+ return this.<span class="apidocCodeKeywordSpan">test</span>(path, value, true);
+};
+
+/**
+* Increase the value at the specified JSON document path by the given number
+* @param {string} path - JSON document path; delimited by periods or slashes
+* @param {Object} value - Number by which to increase the value
+*/
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.patch.prototype.testNot" id="apidoc.element.orchestrate.patch.prototype.testNot">
+        function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>testNot
+        <span class="apidocSignatureSpan">(path, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">testNot = function (path, value) {
+  return this.test(path, value, true);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.patch.prototype.upsert" id="apidoc.element.orchestrate.patch.prototype.upsert">
+        function <span class="apidocSignatureSpan">orchestrate.patch.prototype.</span>upsert
+        <span class="apidocSignatureSpan">(upsert)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">upsert = function (upsert) {
+  this._upsert = upsert !== false;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.orchestrate.search" id="apidoc.module.orchestrate.search">module orchestrate.search</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.search.search" id="apidoc.element.orchestrate.search.search">
+        function <span class="apidocSignatureSpan">orchestrate.</span>search
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SearchBuilder() {
+  this._sortClauses = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+## Search
+
+To run a quick search, you can simply provide the collection you'd like to search within, your query, and optionally, any query
+ parameters like a `list` or `sort` argument. Currently, Orchestrate supports the [Lucene query syntax](http://lucene.apache.org
+/core/2_9_4/queryparsersyntax.html).
+
+```javascript
+db.<span class="apidocCodeKeywordSpan">search</span>('collection', 'query', {
+  sort: 'value.sort:desc',
+  limit: 5,
+  offset: 2
+})
+.then(function (result) {
+
+})
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.search.super_" id="apidoc.element.orchestrate.search.super_">
+        function <span class="apidocSignatureSpan">orchestrate.search.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Builder() {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.orchestrate.search.prototype" id="apidoc.module.orchestrate.search.prototype">module orchestrate.search.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.search.prototype._execute" id="apidoc.element.orchestrate.search.prototype._execute">
+        function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>_execute
+        <span class="apidocSignatureSpan">(method)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_execute = function (method) {
+  assert(this._query, 'Query required.')
+  var pathArgs = []
+  if (this._collection) {
+    pathArgs.push(this._collection);
+  }
+  var query = this._query
+  if (this._kinds) {
+    query = '@path.kind:('+this._kinds.join(' ')+') AND (' + this._query + ')'
+  }
+  var url = this.getDelegate() &amp;&amp; this.getDelegate().generateApiUrl(pathArgs, {
+    query: query,
+    limit: this._limit,
+    offset: this._offset,
+    sort: this._generateSort(),
+    aggregate: this._aggregate,
+    with_fields: this.filterWithFields,
+    without_fields: this.filterWithoutFields
+  })
+
+  return this.getDelegate()['_' + method](url)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ */
+EventBuilder.prototype.get = function () {
+  assert(this.collection, 'Collection required.')
+  assert(this.key, 'Key required.')
+  assert(this.type, 'Type required.')
+  assert(this.timestamp, 'Timestamp required.')
+  assert(this.order, 'Ordinal required.')
+  return this.<span class="apidocCodeKeywordSpan">_execute</span>('get')
+}
+
+/**
+ * List events.
+ * @return {Promise}
+ */
+EventBuilder.prototype.list = function () {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.search.prototype._generateSort" id="apidoc.element.orchestrate.search.prototype._generateSort">
+        function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>_generateSort
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_generateSort = function () {
+  if (this._sortClauses.length &gt; 0) {
+    return this._sortClauses.join(",");
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (this._kinds) {
+    query = '@path.kind:('+this._kinds.join(' ')+') AND (' + this._query + ')'
+  }
+  var url = this.getDelegate() &amp;&amp; this.getDelegate().generateApiUrl(pathArgs, {
+    query: query,
+    limit: this._limit,
+    offset: this._offset,
+    sort: this.<span class="apidocCodeKeywordSpan">_generateSort</span>(),
+    aggregate: this._aggregate,
+    with_fields: this.filterWithFields,
+    without_fields: this.filterWithoutFields
+  })
+
+  return this.getDelegate()['_' + method](url)
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.search.prototype.aggregate" id="apidoc.element.orchestrate.search.prototype.aggregate">
+        function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>aggregate
+        <span class="apidocSignatureSpan">(type, path, args)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">aggregate = function (type, path, args) {
+  assert(type, 'type required');
+  assert(path, 'path required');
+  var parts = [ path, type ];
+  if (typeof(args) === "string" || util.isArray(args)) {
+    parts = parts.concat(args);
+  }
+  var _aggregate = parts.join(':');
+  if (this._aggregate)
+    this._aggregate = [this._aggregate, _aggregate].join(',');
+  else
+    this._aggregate = _aggregate;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```javascript
+db.newSearchBuilder()
+.collection('users')
+.limit(100)
+.offset(10)
+.sortBy('value.name', 'value.age:asc')
+.<span class="apidocCodeKeywordSpan">aggregate</span>('stats', 'value.name')
+.stats('username')
+// these two range aggregates are identical
+// but they use different interfaces
+.range('coolness', '*~1:1~2:2~*')
+.range('radness', function (builder) {
+return builder
+.before(1)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.search.prototype.collection" id="apidoc.element.orchestrate.search.prototype.collection">
+        function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>collection
+        <span class="apidocSignatureSpan">(collection)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">collection = function (collection) {
+  assert(collection, 'Collection required.')
+  this._collection = collection
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+})
+```
+
+The more verbose `SearchBuilder` is also available for a more stately approach:
+
+```javascript
+db.newSearchBuilder()
+.<span class="apidocCodeKeywordSpan">collection</span>('users')
+.limit(100)
+.offset(10)
+.sortBy('value.name', 'value.age:asc')
+.aggregate('stats', 'value.name')
+.stats('username')
+// these two range aggregates are identical
+// but they use different interfaces
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.search.prototype.distance" id="apidoc.element.orchestrate.search.prototype.distance">
+        function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>distance
+        <span class="apidocSignatureSpan">(path, buckets)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">distance = function (path, buckets) {
+ var _buckets = buckets;
+ if (typeof(buckets) === 'function') {
+   _buckets = buckets(new BucketBuilder());
+   if (_buckets.build) _buckets = _buckets.build();
+ }
+
+ return this.aggregate('distance', path, _buckets);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  return builder
+  .before(1)
+  .between(1, 2)
+  .after(2);
+})
+// these two distance aggregates are identical
+// but they use different interfaces
+.<span class="apidocCodeKeywordSpan">distance</span>('location', '*~1:1~2:2~*')
+.distance('hometown', function (builder) {
+  return builder
+  .before(1)
+  .between(1, 2)
+  .after(2);
+})
+.time_series('path', 'day')
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.search.prototype.kinds" id="apidoc.element.orchestrate.search.prototype.kinds">
+        function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>kinds
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">kinds = function () {
+   var kinds = []
+   assert(arguments.length &gt; 0, 'At least one kind required.')
+   for (var i=0; i&lt;arguments.length; i++) {
+     var kind = arguments[i]
+     assert(kind === 'event' || kind === 'item' || kind === 'relationship', "'item', 'event', or 'relationship' required.")
+     kinds.push(kind)
+   }
+   this._kinds = kinds
+   return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+There is a builder method to set the 'kind' for you:
+
+```javascript
+db.newSearchBuilder()
+.collection('users')
+.<span class="apidocCodeKeywordSpan">kinds</span>('event')
+.query('steve')
+```
+
+This query will find all events in the users collection that have a field
+containing 'steve'. You can further limit what event types are searched
+by adding another @path metadata predicate:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.search.prototype.limit" id="apidoc.element.orchestrate.search.prototype.limit">
+        function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>limit
+        <span class="apidocSignatureSpan">(limit)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">limit = function (limit) {
+  assert(limit, 'Limit required.')
+  this._limit = limit
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+The more verbose `SearchBuilder` is also available for a more stately approach:
+
+```javascript
+db.newSearchBuilder()
+.collection('users')
+.<span class="apidocCodeKeywordSpan">limit</span>(100)
+.offset(10)
+.sortBy('value.name', 'value.age:asc')
+.aggregate('stats', 'value.name')
+.stats('username')
+// these two range aggregates are identical
+// but they use different interfaces
+.range('coolness', '*~1:1~2:2~*')
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.search.prototype.offset" id="apidoc.element.orchestrate.search.prototype.offset">
+        function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>offset
+        <span class="apidocSignatureSpan">(offset)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">offset = function (offset) {
+  assert.equal(typeof offset, 'number', 'Offset required.')
+  this._offset = offset
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+The more verbose `SearchBuilder` is also available for a more stately approach:
+
+```javascript
+db.newSearchBuilder()
+.collection('users')
+.limit(100)
+.<span class="apidocCodeKeywordSpan">offset</span>(10)
+.sortBy('value.name', 'value.age:asc')
+.aggregate('stats', 'value.name')
+.stats('username')
+// these two range aggregates are identical
+// but they use different interfaces
+.range('coolness', '*~1:1~2:2~*')
+.range('radness', function (builder) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.search.prototype.query" id="apidoc.element.orchestrate.search.prototype.query">
+        function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>query
+        <span class="apidocSignatureSpan">(query)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">query = function (query) {
+  assert(query, 'Query required.')
+  this._query = query
+  return this._execute('get')
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+.distance('hometown', function (builder) {
+  return builder
+  .before(1)
+  .between(1, 2)
+  .after(2);
+})
+.time_series('path', 'day')
+.<span class="apidocCodeKeywordSpan">query</span>('steve')
+```
+
+Searching Events is also supported. Event Searching is done by adding a
+'@path.kind' predicate to the query to indicate what should be searched.
+By default, Orchestrate will only Search for 'item's in the collection.
+
+```javascript
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.search.prototype.range" id="apidoc.element.orchestrate.search.prototype.range">
+        function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>range
+        <span class="apidocSignatureSpan">(path, buckets)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">range = function (path, buckets) {
+ var _buckets = buckets;
+ if (typeof(buckets) === 'function') {
+   _buckets = buckets(new BucketBuilder());
+   if (_buckets.build) _buckets = _buckets.build();
+ }
+
+ return this.aggregate('range', path, _buckets);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+.limit(100)
+.offset(10)
+.sortBy('value.name', 'value.age:asc')
+.aggregate('stats', 'value.name')
+.stats('username')
+// these two range aggregates are identical
+// but they use different interfaces
+.<span class="apidocCodeKeywordSpan">range</span>('coolness', '*~1:1~2:2~*')
+.range('radness', function (builder) {
+  return builder
+  .before(1)
+  .between(1, 2)
+  .after(2);
+})
+// these two distance aggregates are identical
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.search.prototype.sort" id="apidoc.element.orchestrate.search.prototype.sort">
+        function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>sort
+        <span class="apidocSignatureSpan">(field, order)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sort = function (field, order) {
+  assert(field, 'field required');
+  assert(order, 'order required');
+  if (field.indexOf('@path.') != 0) {
+    // TODO we should NOT be doing this default prefixing!
+    // removing will be a breaking change.
+    field = 'value.' + field;
+  }
+  var sortClause = field + ':' + order;
+  return this.sortBy(sortClause);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.search.prototype.sortBy" id="apidoc.element.orchestrate.search.prototype.sortBy">
+        function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>sortBy
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sortBy = function () {
+  for(var i = 0; i &lt; arguments.length; ++i) {
+    this._sortClauses.push(arguments[i]);
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+The more verbose `SearchBuilder` is also available for a more stately approach:
+
+```javascript
+db.newSearchBuilder()
+.collection('users')
+.limit(100)
+.offset(10)
+.<span class="apidocCodeKeywordSpan">sortBy</span>('value.name', 'value.age:asc')
+.aggregate('stats', 'value.name')
+.stats('username')
+// these two range aggregates are identical
+// but they use different interfaces
+.range('coolness', '*~1:1~2:2~*')
+.range('radness', function (builder) {
+return builder
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.search.prototype.sortRandom" id="apidoc.element.orchestrate.search.prototype.sortRandom">
+        function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>sortRandom
+        <span class="apidocSignatureSpan">(seedValue)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sortRandom = function (seedValue) {
+  var sortClause = "_random";
+  if (typeof(seedValue) !== "undefined") {
+    sortClause = sortClause + ":" + seedValue;
+  }
+  return this.sortBy(sortClause);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.search.prototype.stats" id="apidoc.element.orchestrate.search.prototype.stats">
+        function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>stats
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stats = function (path) {
+ return this.aggregate('stats', path);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```javascript
+db.newSearchBuilder()
+.collection('users')
+.limit(100)
+.offset(10)
+.sortBy('value.name', 'value.age:asc')
+.aggregate('stats', 'value.name')
+.<span class="apidocCodeKeywordSpan">stats</span>('username')
+// these two range aggregates are identical
+// but they use different interfaces
+.range('coolness', '*~1:1~2:2~*')
+.range('radness', function (builder) {
+return builder
+.before(1)
+.between(1, 2)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.search.prototype.time_series" id="apidoc.element.orchestrate.search.prototype.time_series">
+        function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>time_series
+        <span class="apidocSignatureSpan">(path, time, timezone)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">time_series = function (path, time, timezone) {
+ if (typeof(timezone) === "undefined") {
+   return this.aggregate('time_series', path, time);
+ } else {
+   return this.aggregate('time_series', path, [ time, timezone ]);
+ }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+.distance('location', '*~1:1~2:2~*')
+.distance('hometown', function (builder) {
+  return builder
+  .before(1)
+  .between(1, 2)
+  .after(2);
+})
+.<span class="apidocCodeKeywordSpan">time_series</span>('path', 'day')
+.query('steve')
+```
+
+Searching Events is also supported. Event Searching is done by adding a
+'@path.kind' predicate to the query to indicate what should be searched.
+By default, Orchestrate will only Search for 'item's in the collection.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.search.prototype.top_values" id="apidoc.element.orchestrate.search.prototype.top_values">
+        function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>top_values
+        <span class="apidocSignatureSpan">(path, offset, limit)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">top_values = function (path, offset, limit) {
+ if (typeof(offset) !== "undefined" &amp;&amp; typeof(limit) !== "undefined") {
+   return this.aggregate('top_values', path, "offset", offset, "limit", limit);
+ }
+ assert(
+   typeof(offset) === "undefined" &amp;&amp; typeof(limit) === "undefined",
+   "offset or limit params must be included together, or not at all"
+ );
+ return this.aggregate('top_values', path);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.search.prototype.withFields" id="apidoc.element.orchestrate.search.prototype.withFields">
+        function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>withFields
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">withFields = function () {
+  this.filterWithFields = this.filterWithFields || [];
+  this.filterWithFields = this.filterWithFields.concat(Array.prototype.slice.call(arguments));
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  return this._execute('del')
+}
+
+/**
+ * Enable field-filtering, with a whitelist of field names
+ * @example
+ * // adds a whitelist field-filter for the field value.age
+ * eventBuilder.<span class="apidocCodeKeywordSpan">withFields</span>('value.age');
+ * @example
+ * // adds two whitelist field-filters, for the fields value.name and value.age
+ * eventBuilder.withFields('value.name', 'value.age');
+ * @param {...string} fieldNames Fully-qualified field names to use as whitelist field-filters
+ * @return {EventBuilder}
+ */
+EventBuilder.prototype.withFields = function () {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.search.prototype.withoutFields" id="apidoc.element.orchestrate.search.prototype.withoutFields">
+        function <span class="apidocSignatureSpan">orchestrate.search.prototype.</span>withoutFields
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">withoutFields = function () {
+  this.filterWithoutFields = this.filterWithoutFields || [];
+  this.filterWithoutFields = this.filterWithoutFields.concat(Array.prototype.slice.call(arguments));
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  return this;
+}
+
+/**
+ * Enable field-filtering, with a blacklist of field names
+ * @example
+ * // adds a blacklist field-filter for the field value.age
+ * eventBuilder.<span class="apidocCodeKeywordSpan">withoutFields</span>('value.age');
+ * @example
+ * // adds two blacklist field-filters, for the fields value.name and value.age
+ * eventBuilder.withoutFields('value.name', 'value.age');
+ * @param {...string} fieldNames Fully-qualified field names to use as blacklist field-filters
+ * @return {EventBuilder}
+ */
+EventBuilder.prototype.withoutFields = function () {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.orchestrate.toString" id="apidoc.module.orchestrate.toString">module orchestrate.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.orchestrate.toString.toString" id="apidoc.element.orchestrate.toString.toString">
+        function <span class="apidocSignatureSpan">orchestrate.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
