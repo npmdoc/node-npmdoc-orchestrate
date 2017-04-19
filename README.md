@@ -1,4 +1,7 @@
-# api documentation for  [orchestrate (v0.8.2)](http://orchestrate.io/docs)  [![npm package](https://img.shields.io/npm/v/npmdoc-orchestrate.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-orchestrate) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-orchestrate.svg)](https://travis-ci.org/npmdoc/node-npmdoc-orchestrate)
+# npmdoc-orchestrate
+
+#### api documentation for  [orchestrate (v0.8.2)](http://orchestrate.io/docs)  [![npm package](https://img.shields.io/npm/v/npmdoc-orchestrate.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-orchestrate) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-orchestrate.svg)](https://travis-ci.org/npmdoc/node-npmdoc-orchestrate)
+
 #### Orchestrate is a database service. It is a simple REST API that is optimized for queries. Orchestrate combines full-text search, graph, time-series, and key/value.
 
 [![NPM](https://nodei.co/npm/orchestrate.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/orchestrate)
